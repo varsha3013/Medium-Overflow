@@ -1,0 +1,30 @@
+<div class="row justify-content-center m-0" *ngIf="SingleBlogData">
+    <!-- blog left side -->
+    
+    <!-- blog left side end -->
+    <!-- blog right side  -->
+    <div class="col-7 mt-2" >
+        <div class="display-4 mb-2">
+            {{       SingleBlogData.title
+            }}
+        </div>
+        <div class=" d-flex justify-content-start align-items-center mb-2 p-1 ps-0">
+            <img src="images/ruskin-bond.jpg" width="30px" alt="" class="rounded-circle me-2">
+            <span class="h5 me-2 mb-0">{{SingleBlogData.full_name}}</span>
+            <i class="fa-regular fa-calendar-days me-2 fa-2x"></i>
+            <span  class="h5 me-2 mb-0">{{SingleBlogData.published_at |date:'longDate'}}</span>
+                        </div>
+                        <h3 class="text-end">{{SingleBlogData.category_name}}</h3>
+        <hr class="">
+        <div class="article text-center">
+       
+
+           
+            <div [innerHTML]="SingleBlogData.description">
+
+            </div>
+        </div>
+    </div>
+    <!-- blog right side ends -->
+
+</div>

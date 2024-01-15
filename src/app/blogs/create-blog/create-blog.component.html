@@ -1,0 +1,68 @@
+<div class="container-fluid my-3" >
+
+    <!-- <form action="" class="form-group">
+
+        <label for="">Title</label>
+        <br>
+
+        <input type="text" class="form-control"  [formControl]="title">
+        <label for="">Fname</label>
+
+        <input type="text" class="form-control"  [formControl]="fname">
+
+        <label for="">Lname</label>
+
+        <input type="text" class="form-control"  [formControl]="lname">
+
+        {{title.value}}
+        {{fname.value}}
+        {{lname.value}}
+
+
+
+    </form> -->
+
+
+    <form action="" class="form-group" [formGroup]="createForm">
+
+        <label for="">Title</label>
+        <br>
+
+        <input type="text" class="form-control"  formControlName="title">
+        <label for="">Description</label>
+
+        <input type="text" class="form-control"  formControlName="description">
+
+
+        <!-- <button  (click)="check()">check</button> -->
+
+        {{createForm.value | json }}
+
+        <div class="row">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                        {{selectedCategory ?? 'Select Category'}}
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+                        <button ngbDropdownItemn   (click)="SelectCategory(category)"   *ngFor="let category of CategoryData">{{category.category_name}}  </button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+
+                <button  (click)="submit()">Submit</button>
+
+
+
+
+
+
+
+
+
+    </form>
+
+</div>

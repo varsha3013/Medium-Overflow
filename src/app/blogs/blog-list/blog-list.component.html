@@ -1,0 +1,176 @@
+<!-- <div class="row">
+    <table class="table m-4 w-100 col-5">
+        <tr>
+            <th>sr_no</th>
+            <th>title</th>
+            <th>description</th>
+            <th>published_at</th>
+            <th>no_of_likes</th>
+            <th>no_of_comments</th>
+            <th>image_url</th>
+            <th>category_name</th>
+            <th>full_name</th>
+            <th>tags</th>
+        </tr>
+        <tr *ngFor="let blog of BlogData,let i = index">
+            <td>{{i+1}}</td>
+            <td>{{blog.title}}</td>
+            <td>{{blog.description}}</td>
+            <td>{{blog.published_at |date:'longDate'}}</td>
+            <td>{{blog.no_of_likes}}</td>
+            <td>{{blog.no_of_comments}}</td>
+            <td>{{blog.image_url}}</td>
+            <td>{{blog.category_name}}</td>
+            <td>{{blog.full_name}}</td>
+            <td>{{blog.tags}}</td>
+
+
+        </tr>
+
+    </table>
+</div> -->
+
+
+<!-- 
+<div class="d-flex flex-column align-items-center">
+    <div class="row justify-content-center  w-75">
+        <span class="input-group-text  col-6"><button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass text-secondary-emphasis"></i></button></span>
+        <i class="fa-solid fa-circle-chevron-down  fa-3x col-6"></i>
+        
+    </div>
+    <div class="row justify-content-center m-0 flex-nowrap">
+      <button class="btn btn-warning col-3 m-1">For You</button>
+      <button class="btn btn-warning col-3 m-1">Trending</button>
+      <button class="btn btn-warning col-3 m-1">Fashion</button>
+      <button class="btn btn-warning col-3 m-1">Technology</button>
+    </div>
+    <div class="row justify-content-center w-75"  *ngFor="let blog of BlogData">
+      <div class="col">
+        <h1>{{blog.title}}</h1>
+      <p>{{blog.description}}</p>
+     
+      <div class="row">
+        <i class="fa-solid fa-portrait col-1"></i>
+        <span class="col">{{blog.full_name}}</span>
+        <span class="col">{{blog.published_at |date:'longDate'}}</span>
+        <button class="btn btn-warning col-2">Read More</button>
+      </div>
+      <hr>
+      <div class="row justify-content-between">
+          <div class="col-6">
+            <i class="fa-solid fa-heart m-1 ">{{blog.no_of_likes}}</i>
+            <i class="fa-solid fa-comment m-1">{{blog.no_of_comments}}</i>
+          </div>
+          <div class="col"> <i class="fa-solid fa-bookmark"></i></div>
+      </div>
+      </div>
+
+  </div>
+</div> -->
+
+
+
+
+    <!-- Blog section here -->
+    <div class="blog-categoires">
+
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class=" navbar-container navbar-nav  nav-underline fs-3 m-3 border-bottom flex-row  justify-content-between"  (activeIdChange)="fetchBlogs($event)" style="flex-wrap: nowrap; overflow-x: scroll;">
+        
+
+        <li [ngbNavItem]="ALL_ID">
+          <button ngbNavLink>ALL</button>
+          <ng-template ngbNavContent>
+            <div class="blogs" id="blogs">
+              <div class=" row m-0 justify-content-center">
+          
+                <div class="blog-box col-lg-4 col-10 border-end" *ngFor="let blog of BlogData">
+                  <div class=" d-flex flex-column mb-3">
+                    <div class="p-2"><img class="image-height" src="assets\images\test.jpg" alt="test"></div>
+        
+                    <div class="p-2 row m-0">
+                      <h3 class="col-6 ">{{blog.title}}</h3><a class="col-6 text-end" [routerLink]="['/blog',blog.slug]"><i
+                          class=" fa-2x fa-solid  fa-arrow-up-right-from-square" style="color: #000000; "></i></a>
+                    </div>
+                    <div class="p-2">
+                      <p class="p-2">
+                        {{blog.description}}
+                      </p>
+          
+                    </div>
+        
+        
+                    <div class="row">
+                      <i class="fa-solid fa-portrait col-1"></i>
+                      <span class="col ">{{blog.full_name}}</span>
+                      <span class="col">{{blog.published_at |date:'longDate'}}</span>
+                      <!-- <button class="btn btn-warning col-2">Read More</button> -->
+                    </div>
+        
+        
+                    <div class="row justify-content-center">
+                      <div class="col-6 text-center">
+                        <i class="fa-solid fa-heart m-1 ">{{blog.no_of_likes}}</i>
+                        <i class="fa-solid fa-comment m-1">{{blog.no_of_comments}}</i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+          
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="category.category_id" *ngFor="let category of Categorydata">
+          <button ngbNavLink>{{category.category_name}}</button>
+          <ng-template ngbNavContent>
+            <div class="blogs" id="blogs">
+              <div class=" row m-0 justify-content-center">
+          
+                <div class="blog-box col-lg-4 col-10 border-end" *ngFor="let blog of BlogData">
+                  <div class=" d-flex flex-column mb-3">
+                    <div class="p-2"><img class="image-height" src="assets\images\test.jpg" alt="test"></div>
+        
+                    <div class="p-2 row m-0">
+                      <h3 class="col-6 ">{{blog.title}}</h3><a class="col-6 text-end"  [routerLink]="['/blog',blog.slug]"><i
+                          class=" fa-2x fa-solid  fa-arrow-up-right-from-square" style="color: #000000; "></i></a>
+                    </div>
+                    <div class="p-2">
+                      <p class="p-2">
+                        {{blog.description}}
+                      </p>
+          
+                    </div>
+        
+        
+                    <div class="row">
+                      <i class="fa-solid fa-portrait col-1"></i>
+                      <span class="col ">{{blog.full_name}}</span>
+                      <span class="col">{{blog.published_at |date:'longDate'}}</span>
+                      <!-- <button class="btn btn-warning col-2">Read More</button> -->
+                    </div>
+        
+        
+                    <div class="row justify-content-center">
+                      <div class="col-6 text-center">
+                        <i class="fa-solid fa-heart m-1 ">{{blog.no_of_likes}}</i>
+                        <i class="fa-solid fa-comment m-1">{{blog.no_of_comments}}</i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+          
+              </div>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+  
+    </div>
+
+    
+    
