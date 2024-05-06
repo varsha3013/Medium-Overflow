@@ -6,9 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BlogService {
 
-  constructor( private http:HttpClient) { }
+  constructor( private http:HttpClient) 
+  {
+
+   }
 
   // getBlogData():Blog[]
   // {
@@ -368,25 +372,21 @@ export class BlogService {
     return this.http.get('http://localhost:8080/api/categories')
   }
 
-
-
-
   fetchBlogsByCategory(category_id:number):Observable<Blog[]>
   {
     return this.http.get<Blog[]>(`http://localhost:8080/api/blogs/category/${category_id}`)
   }
-
 
   getSingleBlogData(slug:string):Observable<Blog>
   {
     return this.http.get<Blog>(`http://localhost:8080/api/blogs/${slug}`)
   }
 
-
   addPost(data:any):Observable<any>
   {
     return this.http.post('http://localhost:8080/api/blog',data)
   }
+  
 
 
   

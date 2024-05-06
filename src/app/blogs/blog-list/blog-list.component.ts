@@ -8,7 +8,8 @@ import { Category } from 'src/app/shared/interfaces/category.interface';
   templateUrl:'./blog-list.component.html',
   styleUrls:['./blog-list.component.css']
 })
-export class BlogListComponent {
+export class BlogListComponent 
+{
 
   BlogData!:Blog[]
   Categorydata!:Category[]
@@ -16,8 +17,12 @@ export class BlogListComponent {
   ALL_ID=-1
   active = this.ALL_ID
 
+
+
+
   constructor(private blogService:BlogService)
 {
+
 
 }
 
@@ -26,7 +31,8 @@ ngOnInit():void{
   this.blogService.getBlogData().subscribe((data)=>
   {
     console.log(data)
-    this.BlogData=data;  
+    this.BlogData=data;
+
   }
   
   ),
@@ -56,7 +62,7 @@ ngOnInit():void{
     this.blogService.fetchBlogsByCategory(event).subscribe((data)=>
 {
   this.BlogData= data;
-
+  console.log(this.active)
 })
 
   }

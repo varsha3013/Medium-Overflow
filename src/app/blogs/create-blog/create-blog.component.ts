@@ -99,5 +99,5 @@ SelectCategory(category:Category)
 
 
 
-// component destrou hua toh subscription should be destroyed
+// component destroy hua toh subscription should be destroyed
 

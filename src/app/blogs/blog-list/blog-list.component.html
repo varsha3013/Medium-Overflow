@@ -74,9 +74,7 @@
     <!-- Blog section here -->
     <div class="blog-categoires">
 
-      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class=" navbar-container navbar-nav  nav-underline fs-3 m-3 border-bottom flex-row  justify-content-between"  (activeIdChange)="fetchBlogs($event)" style="flex-wrap: nowrap; overflow-x: scroll;">
-        
-
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class=" navbar-container navbar-nav  nav-underline fs-3 m-3 border-bottom flex-row  justify-content-between"  (activeIdChange)="fetchBlogs($event)" style="flex-wrap: nowrap; overflow-x: scroll;">       
         <li [ngbNavItem]="ALL_ID">
           <button ngbNavLink>ALL</button>
           <ng-template ngbNavContent>
@@ -123,6 +121,7 @@
         </li>
         <li [ngbNavItem]="category.category_id" *ngFor="let category of Categorydata">
           <button ngbNavLink>{{category.category_name}}</button>
+          
           <ng-template ngbNavContent>
             <div class="blogs" id="blogs">
               <div class=" row m-0 justify-content-center">
