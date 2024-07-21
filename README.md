@@ -1,4 +1,22 @@
-# MediumOverflow
+MEDIUM-OVERFLOW
+
+MEDIUM-OVERFLOW is a dynamic blogging platform developed using Angular, Spring Boot, and MSSQL. This application offers a comprehensive suite of features designed to enhance user experience and engagement in the blogging community.
+
+Features
+
+- Dynamic Blogging Platform: Built with Angular for the frontend, Spring Boot for the backend, and MSSQL for data storage.
+- Secure User Authentication: Allows users to sign up, log in, and manage their accounts securely.
+- Blog Creation and Editing: Users can create, edit, and categorize blogs using a sophisticated text editor.
+- Community Engagement: Features include likes and comments to foster interaction among users.
+- Scheduling: Allows users to schedule blog posts for future publication.
+- Email Notifications: Keeps users informed about likes and comments on their posts.
+
+Technologies Used
+
+- Frontend: Angular
+- Backend: Spring Boot
+- Database: MSSQL
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.11.
 
